@@ -1,0 +1,345 @@
+body {
+  margin: 0;
+  font-family: "Poppins", "Segoe UI", Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.4;
+  background-color: #f6f1e9;
+  color: #2f241c;
+}
+
+header {
+  background-color: #fbf8f2;
+  border-bottom: 1px solid #e8dfd0;
+  padding: 14px 40px;
+}
+
+h1 {
+  margin: 0;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+main {
+  display: block;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px 32px;
+}
+
+h2 {
+  margin: 28px 0 20px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+h3 {
+  margin: 0 0 22px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+strong {
+  font-weight: 600;
+}
+
+small {
+  font-size: 12px;
+}
+
+/* Foto del plato: mismo tamaño que la miniatura (56x56) y recortada sin deformarse */
+img {
+  width: 56px;
+  height: 56px;
+  flex-shrink: 0;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+label {
+  display: block;
+  font-size: 12px;
+  color: #8a7b6b;
+}
+
+input {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 6px 0 8px;
+  padding: 10px 12px;
+  font-family: inherit;
+  font-size: 13px;
+  background-color: #f6f1e9;
+  border: 1px solid #eadfce;
+  border-radius: 8px;
+  color: #2f241c;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+/* Foco visible para quien navega con teclado */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible {
+  outline: 2px solid #b9501f;
+  outline-offset: 2px;
+}
+
+footer {
+  margin-top: 48px;
+  padding: 24px;
+  text-align: center;
+  font-size: 12px;
+  color: #8a7b6b;
+  border-top: 1px solid #e8dfd0;
+}
+
+footer p {
+  margin: 0;
+}
+
+
+/* ---------- 2) POR ID ---------- */
+
+#carrito-pasos {
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  margin: 8px 0 0;
+  padding: 0;
+  list-style: none;
+  font-size: 13px;
+  color: #8a7b6b;
+}
+
+#carrito-lista {
+  flex: 2;
+  min-width: 0;
+}
+
+#carrito-resumen {
+  flex: 1;
+  position: sticky;
+  top: 20px;
+  box-sizing: border-box;
+  padding: 28px;
+  background-color: #fffdf9;
+  border: 1px solid #eadfce;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(60, 40, 20, 0.05);
+}
+
+#carrito-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 18px;
+  padding-top: 18px;
+  font-size: 14px;
+  font-weight: 600;
+  border-top: 1px solid #eadfce;
+}
+
+#carrito-acciones {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+
+/* ---------- 3) POR CLASE ---------- */
+
+.carrito-lema {
+  margin: 2px 0 0;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #8a7b6b;
+}
+
+.carrito-paso-activo {
+  color: #c98a2e;
+  font-weight: 500;
+}
+
+.carrito-contenedor {
+  display: flex;
+  align-items: flex-start;
+  gap: 32px;
+}
+
+/* Cada ítem del carrito es un div con forma de tarjeta */
+.carrito-item {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-bottom: 12px;
+  padding: 14px;
+  background-color: #fffdf9;
+  border: 1px solid #eadfce;
+  border-radius: 12px;
+}
+
+.carrito-miniatura {
+  width: 56px;
+  height: 56px;
+  line-height: 56px;
+  text-align: center;
+  font-size: 30px;
+  background-color: #f1e8d9;
+  border-radius: 10px;
+}
+
+.carrito-detalle {
+  flex: 1 1 140px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.carrito-nota {
+  font-style: italic;
+  color: #b9501f;
+}
+
+.carrito-unitario {
+  color: #8a7b6b;
+}
+
+.carrito-controles {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.carrito-cantidad {
+  width: 26px;
+  height: 26px;
+  background-color: #f6f1e9;
+  border: 1px solid #eadfce;
+  border-radius: 6px;
+  color: #2f241c;
+}
+
+.carrito-cantidad:hover {
+  background-color: #eadfce;
+}
+
+.carrito-numero {
+  min-width: 26px;
+  text-align: center;
+  font-weight: 600;
+}
+
+.carrito-subtotal {
+  min-width: 80px;
+  text-align: right;
+  font-weight: 600;
+}
+
+.carrito-eliminar {
+  background: none;
+  border: none;
+  font-size: 16px;
+  opacity: 0.6;
+}
+
+.carrito-eliminar:hover {
+  opacity: 1;
+}
+
+.carrito-linea {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 12px 0;
+  font-size: 13px;
+}
+
+.carrito-monto {
+  font-size: 22px;
+  color: #b9501f;
+}
+
+/* Botones: base + variantes */
+.carrito-btn {
+  display: inline-block;
+  box-sizing: border-box;
+  padding: 11px 20px;
+  font-size: 13px;
+  font-weight: 500;
+  text-align: center;
+  text-decoration: none;
+  border: 1px solid #eadfce;
+  border-radius: 8px;
+}
+
+.carrito-aplicar {
+  display: block;
+  width: 100%;
+  margin-bottom: 8px;
+  background-color: #2f241c;
+  border-color: #2f241c;
+  color: #fffdf9;
+}
+
+.carrito-aplicar:hover {
+  background-color: #4a3a2d;
+}
+
+.carrito-secundario {
+  background-color: #fffdf9;
+  color: #2f241c;
+}
+
+.carrito-secundario:hover {
+  background-color: #f1e8d9;
+}
+
+.carrito-principal {
+  padding: 13px 28px;
+  background-color: #b9501f;
+  border-color: #b9501f;
+  color: #fffdf9;
+}
+
+.carrito-principal:hover {
+  background-color: #9c4118;
+}
+
+
+/* ---------- PANTALLAS PEQUEÑAS ---------- */
+
+@media (max-width: 800px) {
+  header {
+    padding: 14px 20px;
+  }
+
+  main {
+    padding: 16px;
+  }
+
+  #carrito-pasos {
+    flex-wrap: wrap;
+    gap: 12px 20px;
+  }
+
+  .carrito-contenedor {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  #carrito-resumen {
+    position: static;
+  }
+}

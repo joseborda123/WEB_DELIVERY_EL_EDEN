@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Carrito - El Edén</title>
+
+  <!-- Tipografías: Playfair Display (logo) y Poppins (texto) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Único archivo de estilos de esta pantalla -->
+  <link rel="stylesheet" href="carrito1.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<body>
+
+  <!-- Encabezado -->
+  <header>
+    <h1>El Edén</h1>
+    <p class="carrito-lema">Restaurante tradicional · Pacarán, Cañete</p>
+  </header>
+
+  <main>
+
+    <!-- Indicador de proceso -->
+    <ol id="carrito-pasos">
+      <li class="carrito-paso carrito-paso-activo">1. Carrito</li>
+      <li class="carrito-paso">2. Envío y Pago</li>
+      <li class="carrito-paso">3. Confirmación</li>
+    </ol>
+
+    <h2>Detalles de tu pedido</h2>
+
+    <!-- Ítems a la izquierda, resumen a la derecha -->
+    <div class="carrito-contenedor">
+
+      <!-- Lista de ítems -->
+      <section id="carrito-lista">
+
+        <div class="carrito-item">
+          <img src="https://www.agencianova.com/data/fotos2/bbx_559505256_wqefdaqdsa.jpg" alt="ceviche">
+          <div class="carrito-detalle">
+            <strong>Ceviche de pescado</strong>
+            <small class="carrito-nota">Sin cebolla</small>
+            <small class="carrito-unitario">S/ 32.00 c/u</small>
+          </div>
+          <div class="carrito-controles">
+            <button class="carrito-cantidad" aria-label="Disminuir">-</button>
+            <span class="carrito-numero">1</span>
+            <button class="carrito-cantidad" aria-label="Aumentar">+</button>
+          </div>
+          <div class="carrito-subtotal">S/ 32.00</div>
+          <button class="carrito-eliminar" aria-label="Quitar del carrito">
+            <i class="bi bi-trash-fill"></i>
+          </button>
+        </div>
+
+        <div class="carrito-item">
+          <img src="https://tse2.mm.bing.net/th/id/OIP.arb8-8hId5bdmE7xUxExlgHaEK?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="camarrones">
+          <div class="carrito-detalle">
+            <strong>Camarones al ajo</strong>
+            <small class="carrito-nota">Picante suave</small>
+            <small class="carrito-unitario">S/ 38.00 c/u</small>
+          </div>
+          <div class="carrito-controles">
+            <button class="carrito-cantidad" aria-label="Disminuir">-</button>
+            <span class="carrito-numero">2</span>
+            <button class="carrito-cantidad" aria-label="Aumentar">+</button>
+          </div>
+          <div class="carrito-subtotal">S/ 76.00</div>
+          <button class="carrito-eliminar" aria-label="Quitar del carrito">
+            <i class="bi bi-trash-fill"></i>
+          </button>
+        </div>
+
+        <div class="carrito-item">
+          <img src="https://www.peru.travel/Contenido/General/Imagen/es/653/1.1/chicha-morada-limon.jpg" alt="chicha morada">
+          <div class="carrito-detalle">
+            <strong>Chicha morada (jarra)</strong>
+            <small class="carrito-nota">Helada y dulce</small>
+            <small class="carrito-unitario">S/ 12.00 c/u</small>
+          </div>
+          <div class="carrito-controles">
+            <button class="carrito-cantidad" aria-label="Disminuir">-</button>
+            <span class="carrito-numero">1</span>
+            <button class="carrito-cantidad" aria-label="Aumentar">+</button>
+          </div>
+          <div class="carrito-subtotal">S/ 12.00</div>
+          <button class="carrito-eliminar" aria-label="Quitar del carrito">
+            <i class="bi bi-trash-fill"></i>
+          </button>
+        </div>
+
+        <div class="carrito-item">
+          <img src="https://portal.andina.pe/EDPfotografia2/Thumbnail/2008/05/17/000062608W.jpg" alt="suspiro">
+          <div class="carrito-detalle">
+            <strong>Suspiro limeño</strong>
+            <small id= descripcion class="carrito-nota">Dulce delicioso peruano</small>
+            <small class="carrito-unitario">S/ 10.00 c/u</small>
+          </div>
+          <div class="carrito-controles">
+            <button class="carrito-cantidad" aria-label="Disminuir">-</button>
+            <span class="carrito-numero">1</span>
+            <button class="carrito-cantidad" aria-label="Aumentar">+</button>
+          </div>
+          <div class="carrito-subtotal">S/ 10.00</div>
+          <button class="carrito-eliminar" aria-label="Quitar del carrito">
+            <i class="bi bi-trash-fill"></i>
+          </button>
+        </div>
+
+      </section>
+
+      <!-- Resumen monetario -->
+      <aside id="carrito-resumen">
+        <h3>Resumen del pedido</h3>
+
+        <label for="carrito-cupon">Cupón de descuento</label>
+        <input type="text" id="carrito-cupon" placeholder="Ingresa tu cupón">
+        <button class="carrito-btn carrito-aplicar">Aplicar</button>
+
+        <div class="carrito-linea">
+          <span>Subtotal</span>
+          <span>S/ 130.00</span>
+        </div>
+        <div class="carrito-linea">
+          <span>Envío (Pacarán y alrededores)</span>
+          <span>S/ 5.00</span>
+        </div>
+        <div class="carrito-linea">
+          <span>Impuestos (IGV 18%)</span>
+          <span>S/ 23.40</span>
+        </div>
+
+        <div id="carrito-total">
+          <span>Total a pagar</span>
+          <span class="carrito-monto">S/ 158.40</span>
+        </div>
+      </aside>
+
+    </div>
+
+    <!-- Botones de navegación -->
+    <nav id="carrito-acciones">
+      <a href="pantalla2.html" class="carrito-btn carrito-secundario"><i class="bi bi-arrow-left"></i> Continuar comprando</a>
+      <a href="pantalla4.html" class="carrito-btn carrito-principal">Procesar pedido <i class="bi bi-arrow-right"></i> </a>
+    </nav>
+
+  </main>
+
+  <footer>
+    <p>© 2026 Restaurante El Edén · Pacarán, Cañete</p>
+  </footer>
+
+</body>
+</html>
