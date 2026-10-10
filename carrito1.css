@@ -33,6 +33,7 @@ h2 {
   text-align: left !important;
   font-size: 18px;
   font-weight: 600;
+  font-weight: bold;
 }
 
 h3 {
@@ -40,7 +41,9 @@ h3 {
   text-align: center;
   font-size: 18px;
   font-weight: 600;
+  font-weight: bold;
 }
+
 
 strong {
   font-weight: 600;
@@ -117,6 +120,7 @@ footer p {
   list-style: none;
   font-size: 13px;
   color: #8a7b6b;
+  font-weight: bold;
 }
 
 #carrito-lista {
@@ -155,7 +159,6 @@ footer p {
   margin-top: 28px;
 }
 
-
 /* ---------- 3) POR CLASE ---------- */
 
 .carrito-lema {
@@ -169,6 +172,7 @@ footer p {
 .carrito-paso-activo {
   color: #c98a2e;
   font-weight: 500;
+  font-weight: bold;
 }
 
 .carrito-contenedor {
@@ -300,6 +304,7 @@ footer p {
 .carrito-secundario {
   background-color: #fffdf9;
   color: #2f241c;
+  font-weight: bold;
 }
 
 .carrito-secundario:hover {
@@ -311,6 +316,7 @@ footer p {
   background-color: #b9501f;
   border-color: #b9501f;
   color: #fffdf9;
+  font-weight: bold;
 }
 
 .carrito-principal:hover {
