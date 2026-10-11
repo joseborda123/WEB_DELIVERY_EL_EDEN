@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Edén - Menú Digital</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="CSS/Menu.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="container header-container">
+            <div class="logo">
+                <i class="fa-solid fa-utensils logo-icon"></i>
+                <div class="logo-text">
+                    <h1>EL EDÉN</h1>
+                    <span>SABORES DE PACARÁN Y CAÑETE</span>
+                </div>
+            </div>
+
+            <div class="search-bar">
+                <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                <input type="text" id="searchInput" placeholder="Buscar platos tradicionales...">
+                <button class="filter-btn"><i class="fa-solid fa-sliders"></i></button>
+            </div>
+
+            <div class="user-actions">
+                <button class="icon-btn" title="Perfil"><i class="fa-regular fa-user"></i></button>
+                <!-- Redirección al carrito al presionar el botón -->
+                <button class="cart-btn" title="Ver Carrito" onclick="location.href='carrito.html'">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span class="cart-count" id="cartCount">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero-banner">
+        <div class="hero-overlay">
+            <h2>GASTRONOMÍA TRADICIONAL CAÑETANA</h2>
+            <p>Sopa Seca, Carapulcra, Camarones y Pisco de Pacarán · Cañete</p>
+        </div>
+    </section>
+
+    <section class="categories-section container">
+        <div class="categories-wrapper">
+            <button class="category-btn active" data-category="todos">[ Todos ]</button>
+            <button class="category-btn" data-category="entradas">[ Entradas ]</button>
+            <button class="category-btn" data-category="platos">[ Platos de Fondo ]</button>
+            <button class="category-btn" data-category="bebidas">[ Bebidas ]</button>
+            <button class="category-btn" data-category="postres">[ Postres ]</button>
+            <button class="category-btn" data-category="promociones">[ Promociones ]</button>
+        </div>
+    </section>
+
+    <main class="menu-container container">
+        <div class="menu-grid" id="menuGrid">
+            
+            <article class="food-card" data-category="entradas">
+                <div class="card-img-wrapper">
+                    <img src="https://encrypted-tbn3.gstatic.com/licensed-image?q=tbn:ANd9GcQu6tzpShuLQ5BeWn_9RnO2HXpSYypaeqvGJpZ-mLxY0lVuY3ED_5uoVOQYMpUdvOFaUA_FRwAHA1VGRDs" alt="Ceviche de Camarones">
+                </div>
+                <div class="card-content">
+                    <h3 class="food-title">CEVICHE DE CAMARONES DEL RÍO</h3>
+                    <p class="food-desc">Camarones frescos del Río Cañete marinados en limón de la chacra y ají limo.</p>
+                    <div class="card-footer">
+                        <span class="food-price">S/ 42.00</span>
+                        <button class="add-btn" onclick="addCart(this)">[ + AGREGAR ]</button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="food-card" data-category="entradas">
+                <div class="card-img-wrapper">
+                    <img src="https://encrypted-tbn1.gstatic.com/licensed-image?q=tbn:ANd9GcRaaSSVIoaG6CK1CWVmcL2GKtypmb7rC-L73vz4eIXQJDHXBxePiXwGQqhxoN0p8zBSQiFe6AOYgxmZguY" alt="Tamal Cañetano">
+                </div>
+                <div class="card-content">
+                    <h3 class="food-title">TAMAL DE MAÍZ CAÑETANO</h3>
+                    <p class="food-desc">Tamal artesanal de maíz amarillo relleno de chancho o pollo con salsa criolla.</p>
+                    <div class="card-footer">
+                        <span class="food-price">S/ 12.00</span>
+                        <button class="add-btn" onclick="addCart(this)">[ + AGREGAR ]</button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="food-card" data-category="platos">
+                <div class="card-img-wrapper">
+                    <img src="https://encrypted-tbn3.gstatic.com/licensed-image?q=tbn:ANd9GcSl_HUwQt02mOumB3xt4R2IUmOCmOEiUh_Jp9yU87lmRnKA7YMda73lnS_SFmm_teJwpAygRjiM9wyXXvI" alt="Mancha Pecho">
+                </div>
+                <div class="card-content">
+                    <h3 class="food-title">MANCHA PECHO CAÑETANO</h3>
+                    <p class="food-desc">La clásica combinación de Carapulcra criolla de papa seca y Sopa Seca aderezada con albahaca.</p>
+                    <div class="card-footer">
+                        <span class="food-price">S/ 38.00</span>
+                        <button class="add-btn" onclick="addCart(this)">[ + AGREGAR ]</button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="food-card" data-category="platos">
+                <div class="card-img-wrapper">
+                    <img src="https://encrypted-tbn0.gstatic.com/licensed-image?q=tbn:ANd9GcTk9HJki8uzKGs9SRDTgsMx0D3NoGj6X2hUJtmZ7LPQnWIBohf9W_hTkeOo3m0PIdt9XVoGN7fBthTPxlI" alt="Arroz con Pato">
+                </div>
+                <div class="card-content">
+                    <h3 class="food-title">ARROZ CON PATO PACARANINO</h3>
+                    <p class="food-desc">Pato tierno macerado en chicha de jora, servido con arroz a la norteña y salsa criolla.</p>
+                    <div class="card-footer">
+                        <span class="food-price">S/ 42.00</span>
+                        <button class="add-btn" onclick="addCart(this)">[ + AGREGAR ]</button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="food-card" data-category="platos">
+                <div class="card-img-wrapper">
+                    <img src="https://encrypted-tbn3.gstatic.com/licensed-image?q=tbn:ANd9GcTaC_BGd3vEw-M9Gwxszf53_0u_eBJJ5G-6rsilr5q1t2HYkDoaCYVDrKjM-NI8JmodGjC31yZVsY2P9HU" alt="Chupe de Camarones">
+                </div>
+                <div class="card-content">
+                    <h3 class="food-title">CHUPE DE CAMARONES EL EDÉN</h3>
+                    <p class="food-desc">Sopa concentrada de camarones de río, choclo, habas, huevo escalfado y leche.</p>
+                    <div class="card-footer">
+                        <span class="food-price">S/ 48.00</span>
+                        <button class="add-btn" onclick="addCart(this)">[ + AGREGAR ]</button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="food-card" data-category="bebidas">
+                <div class="card-img-wrapper">
+                    <img src="https://encrypted-tbn0.gstatic.com/licensed-image?q=tbn:ANd9GcS4BK4XPc_b85uo_xc74OmE0XLN8aM9s_Tq_WEFtxPdDnlvkrhKcbntAipk7NPtgl103BvZ6bK1oBeK7-k" alt="Pisco Sour">
+                </div>
+                <div class="card-content">
+                    <h3 class="food-title">PISCO SOUR PACARÁN</h3>
+                    <p class="food-desc">Pisco artesanal Quebranta elaborado en las bodegas del valle de Pacarán.</p>
+                    <div class="card-footer">
+                        <span class="food-price">S/ 22.00</span>
+                        <button class="add-btn" onclick="addCart(this)">[ + AGREGAR ]</button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="food-card" data-category="bebidas">
+                <div class="card-img-wrapper">
+                    <img src="https://encrypted-tbn2.gstatic.com/licensed-image?q=tbn:ANd9GcQZBRTmHgH43ExCBvzhwXveNLH6AG7wQcRdFxxJrn_8ObxbTLCawVXINXlv3TqDZD7YEyfBbkjlQsh7FCU" alt="Chicha Morada">
+                </div>
+                <div class="card-content">
+                    <h3 class="food-title">CHICHA MORADA CASERA</h3>
+                    <p class="food-desc">Refresco tradicional de maíz morado hervido con piña, manzana y canela (Jarra 1.5L).</p>
+                    <div class="card-footer">
+                        <span class="food-price">S/ 15.00</span>
+                        <button class="add-btn" onclick="addCart(this)">[ + AGREGAR ]</button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="food-card" data-category="postres">
+                <div class="card-img-wrapper">
+                    <img src="https://encrypted-tbn2.gstatic.com/licensed-image?q=tbn:ANd9GcQHTPHN2bSH5wv6WXVvjsY0RkYglw6WLz36iOa0_-HI3NPo_CrD2SIL_Zb2eLNivb4_lOJCmKva4OwPWR8" alt="Picarones">
+                </div>
+                <div class="card-content">
+                    <h3 class="food-title">PICARONES CON MIEL DE CHANCACA</h3>
+                    <p class="food-desc">Aros crocantes a base de camote y zapallo bañados en miel de higo artesanal.</p>
+                    <div class="card-footer">
+                        <span class="food-price">S/ 15.00</span>
+                        <button class="add-btn" onclick="addCart(this)">[ + AGREGAR ]</button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="food-card" data-category="postres">
+                <div class="card-img-wrapper">
+                    <img src="https://encrypted-tbn1.gstatic.com/licensed-image?q=tbn:ANd9GcSe_M5K6y9A7AmTfe4sOCmG8JsE8JQ8cnlE55A5OLPdri0Tplj5rs0Ct-DEUGUIK2lMKg5THTNQm_47rSw" alt="Frejol Colado">
+                </div>
+                <div class="card-content">
+                    <h3 class="food-title">FREJOL COLADO TRADICIONAL</h3>
+                    <p class="food-desc">Dulce afroperuano a base de frejol canario, chancaca, leche y ajonjolí tostado.</p>
+                    <div class="card-footer">
+                        <span class="food-price">S/ 14.00</span>
+                        <button class="add-btn" onclick="addCart(this)">[ + AGREGAR ]</button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="food-card" data-category="promociones">
+                <div class="card-img-wrapper">
+                    <img src="https://encrypted-tbn1.gstatic.com/licensed-image?q=tbn:ANd9GcRU08bJXIIq1DREjlWwbeu9DsMYbRqfx-MooCYrftGew3OWLI6iX36fjClndaQI_OULJBIwrYv7XhRBIXM" alt="Ronda Cañetana">
+                </div>
+                <div class="card-content">
+                    <h3 class="food-title">RONDA TRADICIONAL CAÑETANA</h3>
+                    <p class="food-desc">Carapulcra con Sopa Seca + Ceviche de Camarón + Jarra de Chicha.</p>
+                    <div class="card-footer">
+                        <span class="food-price">S/ 65.00</span>
+                        <button class="add-btn" onclick="addCart(this)">[ + AGREGAR ]</button>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+    </main>
+
+    <script src="JS/Menu.js"></script>
+</body>
+</html>

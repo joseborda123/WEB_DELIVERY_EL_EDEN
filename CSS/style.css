@@ -26,7 +26,7 @@ body {
 
 .panel-izquierdo {
     flex: 1;
-    background-image: url("img/fondo-eden.jpg");
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjQyeDjDtYdC3oXe3ubm6vaIkt4CXjfMwpvVnpzLiSzLuFUE0K7JW0Zxvv&s=10");
     background-size: cover;
     background-position: center;
     display: flex;
@@ -197,4 +197,26 @@ body {
 
 .oculto {
     display: none;
+}
+
+@media (max-width: 768px) {
+    
+    body {
+        height: auto;
+        padding: 20px 0;
+    }
+
+    .contenedor-principal {
+        flex-direction: column;
+        width: 90%;
+        height: auto;
+    }
+
+    .panel-izquierdo {
+        padding: 3rem 1rem;
+    }
+
+    .panel-derecho {
+        padding: 2rem 1.5rem;
+    }
 }
