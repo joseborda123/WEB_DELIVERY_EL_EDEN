@@ -33,8 +33,6 @@ footer {
   border-top: 1px solid #e8dfd0;
 }
 
-
-/* ===== Textos ===== */
 h1 {
   font-family: "Playfair Display", Georgia, serif;
   font-size: 22px;
@@ -66,8 +64,6 @@ label {
   color: #8a7b6b;
 }
 
-
-/* ===== Elementos generales ===== */
 img {
   width: 56px;
   height: 56px;
@@ -97,8 +93,6 @@ button {
   outline-offset: 2px;
 }
 
-
-/* ===== Encabezado y pasos ===== */
 .carrito-lema {
   margin-top: 2px;
   font-size: 10px;
@@ -121,7 +115,6 @@ button {
 .carrito-paso-activo {
   color: #c98a2e;
 }
-
 
 /* ===== Lista de productos ===== */
 .carrito-contenedor {
@@ -205,8 +198,6 @@ button {
   opacity: 1;
 }
 
-
-/* ===== Resumen ===== */
 #carrito-resumen {
   flex: 1;
   position: sticky;
@@ -295,8 +286,6 @@ button {
   background-color: #9c4118;
 }
 
-
-/* ===== Celular ===== */
 @media (max-width: 800px) {
   header {
     padding: 14px 20px;

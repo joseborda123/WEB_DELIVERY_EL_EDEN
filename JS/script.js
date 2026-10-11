@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Referencias a las pestañas y formularios
     const tabLogin = document.getElementById('tab-login');
     const tabRegistro = document.getElementById('tab-registro');
     const formLogin = document.getElementById('form-login');
@@ -22,7 +21,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Ojo para ver/ocultar contraseña
     function configurarBotonOjo(inputId, btnId) {
         const inputPassword = document.getElementById(inputId);
         const btnVerPass = document.getElementById(btnId);

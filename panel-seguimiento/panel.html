@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Seguimiento de pedido | El Edén</title>
+  <link rel="stylesheet" href="css/panel.css">
+</head>
+<body>
+
+  <header class="header">
+    <div class="header__inner">
+      <a class="logo" href="../Menu.html" aria-label="El Edén, ir al inicio">
+        <strong>EL EDÉN</strong>
+        <span>Restaurante Tradicional · Pacarán</span>
+      </a>
+      <nav aria-label="Principal">
+        <ul class="nav">
+          <li><a href="../Menu.html">Inicio</a></li>
+          <li><a href="../Menu.html">Menú</a></li>
+          <li><a href="panel.html" aria-current="page">Mi Cuenta</a></li>
+          <li><a href="#">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="panel" id="panel-pedido" aria-labelledby="titulo-pedido">
+
+      <!-- Encabezado de la orden -->
+      <div class="encabezado">
+        <h1 id="titulo-pedido">¡Pedido <span id="ticket"></span> confirmado!</h1>
+        <p id="saludo"></p>
+      </div>
+
+      <!-- Línea de tiempo de estados -->
+      <ol class="stepper" id="stepper" aria-label="Estado del pedido"></ol>
+      <p class="sr-only" role="status" aria-live="polite" id="estado-sr"></p>
+
+      <!-- Mapa del trayecto -->
+      <div class="mapa">
+        <svg viewBox="0 0 640 300" role="img" aria-label="Mapa con el recorrido del repartidor desde El Edén hasta tu dirección">
+          <!-- fondo y mar -->
+          <rect width="640" height="300" fill="#F1EADB"/>
+          <path d="M0 0 H110 C85 60 130 110 95 170 C70 215 100 260 80 300 H0 Z" fill="var(--agua)"/>
+          <!-- manzanas / parques -->
+          <rect x="190" y="30" width="120" height="70" rx="10" fill="var(--parque)"/>
+          <rect x="400" y="190" width="110" height="70" rx="10" fill="var(--parque)"/>
+          <rect x="260" y="200" width="90" height="60" rx="8" fill="#E7DCC4"/>
+          <rect x="530" y="120" width="80" height="60" rx="8" fill="#E7DCC4"/>
+          <!-- calles -->
+          <g stroke="#fff" stroke-width="10" fill="none" stroke-linecap="round">
+            <path d="M120 120 H620"/>
+            <path d="M330 10 V290"/>
+            <path d="M120 250 C260 270 400 280 620 250"/>
+            <path d="M500 10 V290"/>
+          </g>
+          <!-- ruta -->
+          <path id="ruta" d="M90 215 C170 205 210 120 330 128 S480 100 540 70"
+                fill="none" stroke="#C9B79B" stroke-width="5" stroke-dasharray="2 9" stroke-linecap="round"/>
+          <path id="ruta-hecha" d="M90 215 C170 205 210 120 330 128 S480 100 540 70"
+                fill="none" stroke="var(--terracota)" stroke-width="5" stroke-linecap="round"/>
+          <!-- local -->
+          <circle cx="90" cy="215" r="8" fill="var(--tinta)" stroke="#fff" stroke-width="3"/>
+          <text x="100" y="245" font-size="14" font-weight="700" fill="var(--tinta)">El Edén, Pacarán</text>
+          <text x="100" y="262" font-size="12" fill="var(--tinta-suave)">Cañete</text>
+          <!-- destino -->
+          <g transform="translate(540 70)">
+            <path d="M0 0 C-14 -18 -16 -34 0 -40 C16 -34 14 -18 0 0Z" fill="var(--terracota)" stroke="#fff" stroke-width="2"/>
+            <circle cx="0" cy="-26" r="5" fill="#fff"/>
+          </g>
+          <text x="470" y="108" font-size="12" font-weight="700" fill="var(--tinta)">Tu dirección</text>
+          <!-- repartidor -->
+          <g id="moto">
+            <circle r="20" fill="#fff" stroke="var(--terracota)" stroke-width="3"/>
+            <text text-anchor="middle" y="8" font-size="22">🛵</text>
+          </g>
+        </svg>
+        <div class="mapa__pie">
+          <span id="mensaje-estado"></span>
+          <span class="eta" id="eta"></span>
+        </div>
+      </div>
+
+      <!-- Repartidor + Resumen -->
+      <div class="detalle">
+        <article class="tarjeta" aria-labelledby="h-repartidor">
+          <h2 id="h-repartidor">Tu repartidor</h2>
+          <div class="repartidor">
+            <img class="avatar" id="avatar" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' fill='%23F0B53A'/><circle cx='32' cy='28' r='11' fill='%23E0A47C'/><path d='M20 26a12 12 0 0 1 24 0z' fill='%23A8462B'/><rect x='19' y='25' width='26' height='3' fill='%2386351F'/><path d='M10 64c2-14 12-20 22-20s20 6 22 20z' fill='%233A2418'/></svg>" alt="Foto de ejemplo del repartidor">
+            <div>
+              <strong id="rep-nombre"></strong>
+              <p id="rep-vehiculo"></p>
+            </div>
+          </div>
+          <a class="btn btn--contorno" id="btn-llamar" href="#">📞 Llamar al repartidor</a>
+        </article>
+
+        <article class="tarjeta resumen" aria-labelledby="h-resumen">
+          <h2 id="h-resumen">Resumen del pedido</h2>
+          <ul id="lista-items"></ul>
+          <div class="total"><span>Total (incluye delivery)</span><span id="total"></span></div>
+          <p class="entrega" id="entrega"></p>
+          <div class="acciones">
+            <button class="btn btn--texto" id="btn-comprobante" type="button">Ver comprobante (boleta)</button>
+            <a class="btn btn--lleno" href="../Menu.html">Volver al menú</a>
+          </div>
+        </article>
+      </div>
+
+      <!-- Solo para la exposición: simula el avance del pedido -->
+      <div class="demo">
+        <span><strong>Modo demostración:</strong></span>
+        <button class="btn btn--contorno" style="width:auto;margin:0" id="btn-avanzar" type="button">Avanzar estado</button>
+        <button class="btn btn--texto" id="btn-reiniciar" type="button">Reiniciar</button>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Ventana del comprobante -->
+  <dialog id="boleta" aria-labelledby="b-titulo">
+    <div class="boleta" id="boleta-contenido"></div>
+    <div class="boleta__acciones">
+      <button type="button" class="btn btn--contorno" id="b-imprimir">Imprimir</button>
+      <button type="button" class="btn btn--lleno" id="b-cerrar">Cerrar</button>
+    </div>
+  </dialog>
+
+  <script src="js/panel.js"></script>
+</body>
+</html>

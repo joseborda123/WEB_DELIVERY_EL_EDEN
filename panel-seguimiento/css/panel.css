@@ -1,0 +1,182 @@
+:root {
+  --terracota: #A8462B;
+  --terracota-oscuro: #86351F;
+  --crema: #FBF4E6;
+  --papel: #FFFBF3;
+  --tinta: #3A2418;
+  --tinta-suave: #7A5F50;
+  --borde: #E4D3BA;
+  --verde: #3F7A3A;
+  --ambar: #F0B53A;
+  --agua: #A9CBDB;
+  --parque: #C9DDB4;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background: var(--crema);
+  color: var(--tinta);
+  line-height: 1.5;
+  min-height: 100vh;
+}
+h1, h2, h3 { font-family: Georgia, "Times New Roman", serif; line-height: 1.2; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--ambar); outline-offset: 2px; }
+
+/* ---------- Header ---------- */
+.header {
+  background: var(--terracota);
+  color: #fff;
+  border-bottom: 4px solid var(--ambar);
+}
+.header__inner {
+  max-width: 1000px; margin: 0 auto; padding: 14px 20px;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+}
+.logo { text-decoration: none; display: flex; flex-direction: column; }
+.logo strong { font-family: Georgia, serif; font-size: 1.5rem; letter-spacing: .02em; }
+.logo span { font-size: .75rem; opacity: .85; }
+.nav { display: flex; gap: 22px; list-style: none; }
+.nav a { text-decoration: none; font-weight: 600; padding: 4px 0; border-bottom: 2px solid transparent; }
+.nav a:hover, .nav a[aria-current="page"] { border-color: var(--ambar); }
+
+/* ---------- Contenido ---------- */
+main { max-width: 1000px; margin: 0 auto; padding: 28px 20px 48px; }
+.panel {
+  background: var(--papel);
+  border: 1px solid var(--borde);
+  border-radius: 14px;
+  padding: 28px;
+  box-shadow: 0 6px 20px rgba(90, 50, 20, .08);
+}
+.encabezado { text-align: center; margin-bottom: 24px; }
+.encabezado h1 { font-size: clamp(1.5rem, 4vw, 2.1rem); }
+.encabezado p { color: var(--tinta-suave); margin-top: 6px; }
+
+/* ---------- Stepper ---------- */
+.stepper {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  list-style: none; margin: 0 0 24px; position: relative;
+}
+.paso { text-align: center; position: relative; font-size: .9rem; font-weight: 600; }
+.paso::before { /* línea hacia el paso anterior */
+  content: ""; position: absolute; top: 17px; right: 50%; width: 100%;
+  height: 4px; background: var(--borde); z-index: 0;
+}
+.paso:first-child::before { display: none; }
+.paso.completado::before, .paso.activo::before { background: var(--verde); }
+.paso__icono {
+  position: relative; z-index: 1;
+  width: 38px; height: 38px; margin: 0 auto 6px;
+  border-radius: 50%; border: 3px solid var(--borde); background: #fff;
+  display: grid; place-items: center; font-size: 1.1rem;
+  transition: background .4s, border-color .4s;
+}
+.paso.completado .paso__icono { background: var(--verde); border-color: var(--verde); color: #fff; }
+.paso.activo .paso__icono { background: var(--ambar); border-color: var(--ambar); animation: pulso 1.8s ease-out infinite; }
+.paso.pendiente { color: var(--tinta-suave); font-weight: 500; }
+.paso small { display: block; font-weight: 400; color: var(--tinta-suave); font-size: .75rem; }
+@keyframes pulso {
+  0% { box-shadow: 0 0 0 0 rgba(240,181,58,.6); }
+  100% { box-shadow: 0 0 0 14px rgba(240,181,58,0); }
+}
+
+/* ---------- Mapa ---------- */
+.mapa {
+  border: 1px solid var(--borde); border-radius: 12px; overflow: hidden;
+  background: #EFE7D6;
+}
+.mapa svg { display: block; width: 100%; height: auto; }
+.mapa__pie {
+  display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;
+  padding: 10px 16px; background: var(--papel); border-top: 1px solid var(--borde); font-size: .95rem;
+}
+.eta { font-weight: 700; }
+
+/* ---------- Tarjetas inferiores ---------- */
+.detalle { display: grid; grid-template-columns: 1fr 1.2fr; gap: 20px; margin-top: 20px; }
+.tarjeta { border: 1px solid var(--borde); border-radius: 12px; padding: 18px; background: #fff; }
+.tarjeta h2 { font-size: 1.05rem; margin-bottom: 12px; }
+
+.repartidor { display: flex; align-items: center; gap: 14px; }
+.avatar {
+  width: 64px; height: 64px; border-radius: 50%; flex: none;
+  background: var(--terracota); color: #fff; display: grid; place-items: center;
+  font-family: Georgia, serif; font-size: 1.5rem; border: 3px solid var(--ambar);
+}
+.repartidor p { font-size: .9rem; color: var(--tinta-suave); }
+.repartidor strong { color: var(--tinta); font-size: 1.05rem; }
+.btn {
+  display: inline-block; text-align: center; text-decoration: none; cursor: pointer;
+  font: inherit; font-weight: 700; border-radius: 999px; padding: 11px 20px;
+  transition: background .2s, color .2s;
+}
+.btn--contorno { border: 2px solid var(--terracota); color: var(--terracota); background: #fff; width: 100%; margin-top: 14px; }
+.btn--contorno:hover { background: var(--terracota); color: #fff; }
+.btn--lleno { border: 2px solid var(--terracota); background: var(--terracota); color: #fff; }
+.btn--lleno:hover { background: var(--terracota-oscuro); border-color: var(--terracota-oscuro); }
+.btn--texto { border: none; background: none; color: var(--terracota); text-decoration: underline; padding: 8px 4px; }
+
+.resumen ul { list-style: none; }
+.resumen li { display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px dashed var(--borde); }
+.resumen .total { display: flex; justify-content: space-between; font-weight: 700; font-size: 1.1rem; padding-top: 12px; }
+.acciones { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
+
+/* ---------- Controles de demo ---------- */
+.demo {
+  margin-top: 24px; padding: 14px 18px; border: 2px dashed var(--borde); border-radius: 12px;
+  display: flex; flex-wrap: wrap; align-items: center; gap: 12px; font-size: .9rem; color: var(--tinta-suave);
+}
+.demo .btn { padding: 8px 16px; font-size: .9rem; }
+
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+@media (max-width: 720px) {
+  .detalle { grid-template-columns: 1fr; }
+  .panel { padding: 18px; }
+  .paso { font-size: .78rem; }
+  .nav { gap: 14px; font-size: .9rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .paso.activo .paso__icono { animation: none; }
+}
+
+
+/* ---- conexión con el resto del sistema ---- */
+.entrega { margin-top: 12px; font-size: .9rem; color: var(--tinta-suave); }
+.vacio { text-align: center; padding: 48px 24px; }
+.vacio p { color: var(--tinta-suave); margin: 8px 0 20px; }
+.resumen .descuento { color: var(--verde); }
+
+
+/* ---- foto del repartidor y boleta ---- */
+img.avatar { object-fit: cover; background: var(--ambar); }
+
+dialog#boleta {
+  margin: auto; border: none; border-radius: 12px; padding: 0; width: min(420px, 92vw);
+  box-shadow: 0 12px 40px rgba(0,0,0,.35); background: #fff; color: var(--tinta);
+}
+dialog#boleta::backdrop { background: rgba(40, 20, 10, .55); }
+.boleta { padding: 24px 22px 10px; font-size: .9rem; max-height: 75vh; overflow-y: auto; }
+.boleta h2 { font-size: 1.3rem; text-align: center; }
+.boleta .centro { text-align: center; color: var(--tinta-suave); font-size: .8rem; }
+.boleta .tipo { text-align: center; margin: 14px 0; padding: 8px; border: 2px solid var(--tinta); font-weight: 700; }
+.boleta dl { display: grid; grid-template-columns: auto 1fr; gap: 3px 10px; margin-bottom: 12px; }
+.boleta dt { color: var(--tinta-suave); }
+.boleta table { width: 100%; border-collapse: collapse; margin-bottom: 8px; }
+.boleta th { text-align: left; font-size: .75rem; color: var(--tinta-suave); border-bottom: 1px solid var(--tinta); padding: 4px 0; }
+.boleta th:last-child, .boleta td:last-child { text-align: right; }
+.boleta td { padding: 5px 0; border-bottom: 1px dashed var(--borde); }
+.boleta .linea { display: flex; justify-content: space-between; padding: 3px 0; }
+.boleta .linea.total { font-weight: 700; font-size: 1.1rem; border-top: 2px solid var(--tinta); margin-top: 6px; padding-top: 8px; }
+.boleta .gracias { text-align: center; margin: 14px 0 4px; color: var(--tinta-suave); }
+.boleta__acciones { display: flex; gap: 10px; padding: 12px 22px 20px; }
+.boleta__acciones .btn { margin: 0; width: 100%; }
+
+@media print {
+  body > *:not(dialog) { display: none !important; }
+  dialog#boleta { box-shadow: none; position: static; width: 100%; }
+  .boleta { max-height: none; overflow: visible; }
+  .boleta__acciones { display: none; }
+}

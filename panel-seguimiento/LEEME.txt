@@ -1,0 +1,15 @@
+PANTALLA 5 - SEGUIMIENTO DEL PEDIDO EN TIEMPO REAL (El Edén)
+
+Archivos:
+  panel.html      -> estructura de la página
+  css/panel.css   -> estilos
+  js/panel.js     -> lógica (stepper, mapa con la moto, boleta)
+
+Cómo verla: abrir panel.html con Live Server. No necesita login ni otros archivos.
+Muestra un pedido de ejemplo y tiene un "Modo demostración" para avanzar los estados.
+
+Para unirla con las demás pantallas:
+  - El checkout debe guardar el pedido en localStorage con la clave "eden_pedido"
+    (formato explicado al inicio de js/panel.js) y luego redirigir a panel.html.
+  - Los enlaces del menú superior (menu.html, panel.html) hay que ajustarlos a las páginas reales.
+  - Borrar el bloque <div class="demo"> de panel.html cuando ya no se necesite la demostración.

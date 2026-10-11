@@ -11,7 +11,6 @@ const cupones = {
 };
 let descuento = 0;
 
-// Línea "Descuento"
 const lineaDescuento = document.createElement('div');
 lineaDescuento.className = 'carrito-linea';
 lineaDescuento.innerHTML = '<span>Descuento</span><span>- S/ 0.00</span>';
@@ -19,12 +18,10 @@ if (lineas[0]) {
     lineas[0].after(lineaDescuento);
 }
 
-// Obtener los productos guardados
 function getCart() {
     return JSON.parse(localStorage.getItem('cart')) || [];
 }
 
-// Guardar los productos en localStorage
 function saveCart(cart) {
     localStorage.setItem('cart', JSON.stringify(cart));
 }
@@ -66,7 +63,6 @@ function renderizarCarrito() {
     calcularTotales(cart);
 }
 
-// Cambiar la cantidad de un producto
 window.cambiarCantidad = function(index, cambio) {
     let cart = getCart();
     if (cart[index]) {
@@ -79,7 +75,6 @@ window.cambiarCantidad = function(index, cambio) {
     }
 };
 
-// Eliminar un producto
 window.eliminarProducto = function(index) {
     let cart = getCart();
     cart.splice(index, 1);
@@ -87,7 +82,6 @@ window.eliminarProducto = function(index) {
     renderizarCarrito();
 };
 
-// Calcular subtotales y totales
 function calcularTotales(cart = getCart()) {
     let subtotal = 0;
 
