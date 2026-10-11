@@ -6,7 +6,8 @@ const textoTotal = document.querySelector('.carrito-monto');
 
 const cupones = {
     'EDEN10': 0.10,
-    'PACARAN5': 0.05
+    'PACARAN2026': 0.05,
+    'SISTEMAS': 0.20
 };
 let descuento = 0;
 
