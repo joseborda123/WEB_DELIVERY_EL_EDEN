@@ -1,3 +1,123 @@
+/* =========================================
+   VARIABLES Y ESTILOS BASE
+   ========================================= */
+@import url('https://googleapis.com');
+
+:root {
+    --primary-brown: #aa5a3b;
+    --primary-brown-hover: #8e482d;
+    --bg-main: #f9f6f2;
+    --card-bg: #ffffff;
+    --text-dark: #2c2420;
+    --text-muted: #786d67;
+    --border-color: #e6ddd6;
+    --shadow: 0 4px 16px rgba(44, 36, 32, 0.05);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-main);
+    color: var(--text-dark);
+    line-height: 1.5;
+}
+
+/* =========================================
+   ENCABEZADO (HEADER)
+   ========================================= */
+.encabezado {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 14px 4%;
+    background: var(--card-bg);
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+}
+
+.marca {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--text-dark);
+    text-decoration: none;
+}
+
+.marca i {
+    font-size: 1.8rem;
+    color: var(--primary-brown);
+}
+
+.marca span {
+    display: flex;
+    flex-direction: column;
+}
+
+.marca strong {
+    font-size: 1.15rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    line-height: 1.1;
+}
+
+.marca small {
+    font-size: 0.65rem;
+    color: var(--text-muted);
+    letter-spacing: 0.5px;
+}
+
+.navegacion {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.navegacion a {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.navegacion a:hover,
+.navegacion a.activo {
+    color: var(--primary-brown);
+    font-weight: 600;
+}
+
+.icono-carrito {
+    display: grid;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    background: var(--bg-main);
+    border: 1px solid var(--border-color);
+    border-radius: 50%;
+    color: var(--text-dark);
+    font-size: 1.15rem;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.icono-carrito:hover {
+    background: var(--primary-brown);
+    border-color: var(--primary-brown);
+    color: #fff;
+}
+
+/* =========================================
+   CONTENEDOR Y TÍTULO DE PÁGINA
+   ========================================= */
 .contenedor {
     width: min(1200px, 92%);
     margin: 30px auto;
@@ -40,6 +160,9 @@
     font-size: 0.9rem;
 }
 
+/* =========================================
+   GRID PRINCIPAL Y PANELES
+   ========================================= */
 .checkout-grid {
     display: grid;
     grid-template-columns: minmax(0, 1fr) 370px;
@@ -80,6 +203,9 @@
     font-size: 1.3rem;
 }
 
+/* =========================================
+   CAMPOS DE FORMULARIO
+   ========================================= */
 .campos {
     display: grid;
     gap: 16px 18px;
@@ -118,6 +244,7 @@
     border-radius: 10px;
     outline: none;
     color: var(--text-dark);
+    font-family: inherit;
     font-size: 0.88rem;
     transition: border-color 0.2s, box-shadow 0.2s;
 }
@@ -132,6 +259,9 @@
     box-shadow: 0 0 0 3px rgba(170, 90, 59, 0.15);
 }
 
+/* =========================================
+   MÉTODOS DE PAGO
+   ========================================= */
 .metodos-pago {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -215,6 +345,9 @@
     color: var(--primary-brown);
 }
 
+/* =========================================
+   RESUMEN LATERAL Y PRODUCTOS
+   ========================================= */
 .resumen {
     position: sticky;
     top: 90px;
@@ -308,6 +441,9 @@
     font-size: 1.6rem;
 }
 
+/* =========================================
+   BOTÓN CONFIRMAR Y MENSAJES
+   ========================================= */
 .btn-confirmar {
     display: flex;
     align-items: center;
@@ -320,6 +456,7 @@
     border: none;
     border-radius: 25px;
     color: #fff;
+    font-family: inherit;
     font-size: 0.9rem;
     font-weight: 600;
     cursor: pointer;
@@ -391,46 +528,44 @@
     text-decoration: underline;
 }
 
+/* =========================================
+   RESPONSIVE DESIGN
+   ========================================= */
 @media (max-width: 1000px) {
     .checkout-grid {
         grid-template-columns: minmax(0, 1fr) 320px;
         gap: 16px;
     }
-
     .metodos-pago {
-        grid-template-columns: 1fr;
+    grid-template-columns: 1fr;
     }
-
     .metodo {
-        min-height: 72px;
+    min-height: 72px;
     }
-}
-
-@media (max-width: 760px) {
+    }
+    @media (max-width: 760px) {
+    .navegacion {
+    display: none;
+    }
     .checkout-grid {
-        grid-template-columns: 1fr;
+    grid-template-columns: 1fr;
     }
-
     .resumen {
-        position: static;
+    position: static;
     }
-
     .tres-columnas {
-        grid-template-columns: 1fr;
+    grid-template-columns: 1fr;
     }
-}
-
-@media (max-width: 480px) {
+    }
+    @media (max-width: 480px) {
     .contenedor {
-        width: 94%;
-        margin: 20px auto;
+    width: 94%;
+    margin: 20px auto;
     }
-
     .panel {
-        padding: 18px;
+    padding: 18px;
     }
-
     .dos-columnas {
-        grid-template-columns: 1fr;
+    grid-template-columns: 1fr;
     }
 }
