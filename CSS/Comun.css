@@ -1,0 +1,137 @@
+:root {
+    --bg-main: #f9f4ee;
+    --card-bg: #ffffff;
+    --primary-brown: #aa5a3b;
+    --primary-brown-hover: #8e472d;
+    --text-dark: #2c221e;
+    --text-muted: #6e655f;
+    --header-bg: #ebdccb;
+    --border-color: #e2d1c0;
+    --shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background-color: var(--bg-main);
+    color: var(--text-dark);
+    line-height: 1.5;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: var(--header-bg);
+    padding: 12px 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: inherit;
+    text-decoration: none;
+}
+
+.logo-icon {
+    color: var(--primary-brown);
+    font-size: 1.8rem;
+}
+
+.logo-text h1 {
+    color: var(--text-dark);
+    font-size: 1.3rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.logo-text span {
+    color: var(--text-muted);
+    font-size: 0.65rem;
+    letter-spacing: 1px;
+}
+
+.main-nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.main-nav a {
+    padding: 8px 16px;
+    background-color: transparent;
+    border-radius: 20px;
+    color: var(--text-dark);
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.main-nav a:hover,
+.main-nav a.active {
+    background-color: var(--primary-brown);
+    color: #fff;
+}
+
+.user-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.cart-btn {
+    display: flex;
+    align-items: center;
+    padding: 8px 12px;
+    background: #fff;
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    color: var(--text-dark);
+    font-size: 1rem;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.cart-btn:hover {
+    background-color: var(--primary-brown);
+    border-color: var(--primary-brown);
+    color: #fff;
+}
+
+.footer {
+    margin-top: 48px;
+    padding: 24px 20px;
+    border-top: 1px solid var(--border-color);
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+    }
+}
