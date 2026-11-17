@@ -1,0 +1,99 @@
+/* =========================================
+   VARIABLES GLOBALES (Paleta de Colores y Fuentes)
+========================================= */
+:root {
+    --color-fondo-header: #ebdccb;
+    --color-terracota: #aa5a3b;
+    --color-texto-oscuro: #2c221e;
+    --color-texto-claro: #6e655f;
+    --color-blanco: #FFFFFF;
+
+    --fuente-principal: 'Poppins', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--fuente-principal);
+    color: var(--color-texto-oscuro);
+    background-color: var(--color-blanco);
+    line-height: 1.5;
+}
+
+/* ===== Encabezado compartido ===== */
+.header {
+    background-color: var(--color-fondo-header);
+    padding: 12px 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+/* ===== Logo (idéntico a Menu.css) ===== */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+}
+
+.logo:hover {
+    opacity: 0.8;
+}
+
+.logo-icon {
+    font-size: 1.8rem;
+    color: var(--color-terracota);
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.logo-text h1 {
+    font-family: var(--fuente-principal);
+    font-size: 1.3rem;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: normal;
+    color: var(--color-texto-oscuro);
+    margin: 0;
+}
+
+.logo-text span {
+    font-family: var(--fuente-principal);
+    font-size: 0.65rem;
+    font-weight: 400;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--color-texto-claro);
+}
+
+@media (max-width: 720px) {
+    .header-container {
+        justify-content: center;
+    }
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
